@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: saas-starter
+  datasource:
+    url: jdbc:h2:mem:saasdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=500,expireAfterWrite=10m
+
+app:
+  jwt:
+    secret: "c2Fhcy1zdGFydGVyLWp3dC1zZWNyZXQta2V5LWZvci1wcm9kdWN0aW9uLXVzZS1taW4tMzItY2hhcnM="
+    expiration-ms: 86400000
+
+logging:
+  level:
+    com.saas: DEBUG
+    org.springframework.security: WARN
