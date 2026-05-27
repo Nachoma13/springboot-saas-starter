@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot SaaS Starter Kit</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .hero { text-align: center; padding: 80px 0 40px; }
+        .hero h1 { font-size: 2.8em; background: linear-gradient(135deg, #58a6ff, #3fb950); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero .sub { font-size: 1.2em; color: #8b949e; margin-top: 10px; }
+        .hero p { color: #8b949e; margin-top: 15px; font-size: 1.1em; }
+        .btn { display: inline-block; background: #238636; color: #fff !important; padding: 16px 48px; border-radius: 8px; text-decoration: none; font-size: 1.2em; font-weight: 600; margin: 25px 0; transition: background 0.2s; }
+        .btn:hover { background: #2ea043; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 40px 0; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 24px; }
+        .card h3 { color: #58a6ff; margin-bottom: 8px; font-size: 1.1em; }
+        .card p { color: #8b949e; font-size: 0.9em; }
+        .section { padding: 40px 0; }
+        .section h2 { color: #58a6ff; font-size: 1.5em; margin-bottom: 20px; }
+        .list { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 30px; }
+        .list ul { list-style: none; columns: 2; }
+        .list li { padding: 8px 0; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+        .list li:before { content: "âœ“ "; color: #3fb950; font-weight: bold; }
+        .pricing { text-align: center; background: linear-gradient(135deg, #161b22, #0d1117); border: 2px solid #238636; border-radius: 16px; padding: 50px 30px; margin: 40px 0; }
+        .pricing .price { font-size: 3.5em; font-weight: 800; color: #58a6ff; }
+        .pricing .note { color: #8b949e; margin-top: 10px; font-size: 0.9em; }
+        .price-btn { background: #238636; border: none; color: #fff; padding: 18px 60px; border-radius: 8px; font-size: 1.3em; font-weight: 600; cursor: pointer; margin: 20px 0; }
+        .features-detail { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; padding: 30px 0; }
+        .features-detail .item { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 15px; text-align: center; }
+        .features-detail .item .icon { font-size: 2em; margin-bottom: 8px; }
+        .features-detail .item .label { font-size: 0.85em; color: #8b949e; }
+        .footer { text-align: center; padding: 40px 0; color: #484f58; border-top: 1px solid #21262d; }
+        pre { background: #0d1117; padding: 15px; border-radius: 8px; overflow-x: auto; font-size: 0.9em; color: #8b949e; }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .list ul { columns: 1; } .features-detail { grid-template-columns: 1fr 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Spring Boot SaaS Starter Kit</h1>
+            <div class="sub">Production-ready boilerplate for Java 21 + Spring Boot 3.4</div>
+            <p>Multi-tenancy, JWT Auth, RBAC, Docker, CI/CD â€” everything you need to launch your SaaS.</p>
+            <a href="#buy" class="btn">Get the Starter Kit &mdash; &euro;97</a>
+        </div>
+
+        <div class="grid">
+            <div class="card"><h3>Multi-Tenancy</h3><p>Database-level isolation with automatic tenant resolution via ThreadLocal context.</p></div>
+            <div class="card"><h3>JWT + OAuth2</h3><p>Secure token authentication with Google/GitHub social login support.</p></div>
+            <div class="card"><h3>Role-Based Access</h3><p>USER, ADMIN, SUPER_ADMIN roles with method-level security annotations.</p></div>
+            <div class="card"><h3>Rate Limiting</h3><p>Caffeine-based 60 req/min per IP. Protects against brute force and DoS.</p></div>
+            <div class="card"><h3>Audit Logging</h3><p>Complete audit trail for compliance. Track every operation.</p></div>
+            <div class="card"><h3>Docker + CI/CD</h3><p>Multi-stage build, docker-compose with PostgreSQL, GitHub Actions pipeline.</p></div>
+            <div class="card"><h3>Swagger Docs</h3><p>Auto-generated OpenAPI docs with bearer token authentication.</p></div>
+            <div class="card"><h3>Flyway Migrations</h3><p>Version-controlled database schema migrations. H2 for dev, PostgreSQL for prod.</p></div>
+        </div>
+
+        <div class="section">
+            <h2>Quick Start</h2>
+            <pre>git clone https://github.com/Nachoma13/springboot-saas-starter
+cd springboot-saas-starter
+mvn spring-boot:run
+open http://localhost:8080/swagger-ui.html</pre>
+        </div>
+
+        <div class="section">
+            <h2>API Endpoints</h2>
+            <pre>POST /api/auth/register    Register new user (auto-creates tenant)
+POST /api/auth/login       Login with email/password
+GET  /api/users/me         Get current user profile
+GET  /api/users            List users (Admin)
+GET  /api/admin/tenants    List tenants (Admin)
+PUT  /api/admin/tenants/{id}/plan  Update plan (Admin)
+GET  /api/admin/audit-logs Get audit logs (Admin)
+GET  /api/health           Health check</pre>
+        </div>
+
+        <div class="section">
+            <h2>Tech Stack</h2>
+            <div class="features-detail">
+                <div class="item"><div class="icon">â˜•</div><div class="label">Java 21</div></div>
+                <div class="item"><div class="icon">ðŸŒ±</div><div class="label">Spring Boot 3.4</div></div>
+                <div class="item"><div class="icon">ðŸ”</div><div class="label">Spring Security</div></div>
+                <div class="item"><div class="icon">ðŸ˜</div><div class="label">PostgreSQL / H2</div></div>
+                <div class="item"><div class="icon">ðŸ³</div><div class="label">Docker</div></div>
+                <div class="item"><div class="icon">âš¡</div><div class="label">GitHub Actions</div></div>
+            </div>
+        </div>
+
+        <div class="section" id="buy">
+            <h2>What's Included</h2>
+            <div class="list">
+                <ul>
+                    <li>Complete Spring Boot 3.4 project (Java 21)</li>
+                    <li>Multi-tenant architecture</li>
+                    <li>JWT authentication + OAuth2</li>
+                    <li>RBAC with 3 roles</li>
+                    <li>Rate limiting with Caffeine</li>
+                    <li>Comprehensive audit logging</li>
+                    <li>Docker multi-stage build</li>
+                    <li>docker-compose with PostgreSQL</li>
+                    <li>GitHub Actions CI/CD</li>
+                    <li>Flyway database migrations</li>
+                    <li>Swagger/OpenAPI documentation</li>
+                    <li>Global exception handler</li>
+                    <li>Input validation</li>
+                    <li>CORS configuration</li>
+                    <li>Production/Dev profiles</li>
+                    <li>Actuator endpoints</li>
+                    <li>Email service</li>
+                    <li>Setup and deploy scripts</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pricing">
+            <h2 style="color: #c9d1d9; margin-bottom: 10px;">Launch Your SaaS Today</h2>
+            <div class="price">&euro;97</div>
+            <p style="color: #8b949e; margin: 10px 0;">Single use license &middot; Lifetime updates &middot; Email support</p>
+            <button class="price-btn" onclick="window.location.href='https://segurojuan.gumroad.com/l/adfauo'">Buy Now</button>
+            <div class="note">Available on Gumroad &middot; Instant download &middot; 30-day refund</div>
+        </div>
+
+        <div class="footer">
+            Spring Boot SaaS Starter Kit &copy; 2026<br>
+            Built with Java 21, Spring Boot 3.4, and a lot of coffee
+        </div>
+    </div>
+</body>
+</html>
+
