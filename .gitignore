@@ -1,0 +1,15 @@
+target/
+*.class
+*.jar
+*.war
+*.zip
+.idea/
+*.iml
+.settings/
+.project
+.classpath
+.DS_Store
+node_modules/
+__pycache__/
+*.pyc
+.env
