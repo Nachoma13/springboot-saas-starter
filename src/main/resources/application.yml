@@ -28,6 +28,13 @@ spring:
     type: caffeine
     caffeine:
       spec: maximumSize=500,expireAfterWrite=10m
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: demo-client-id
+            client-secret: demo-client-secret
 
 app:
   jwt:

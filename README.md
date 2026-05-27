@@ -30,6 +30,19 @@ Stop writing boilerplate code. This kit gives you a complete, production-ready S
 | **CI/CD** | GitHub Actions pipeline included |
 | **Database** | PostgreSQL (Flyway) + H2 for dev |
 
+## 🌐 Live Demo
+
+**[https://dc8be78f1042b523-92-185-250-102.serveousercontent.com](https://dc8be78f1042b523-92-185-250-102.serveousercontent.com)**
+
+| Endpoint | URL |
+|----------|-----|
+| API Base | [https://dc8be78f1042b523-92-185-250-102.serveousercontent.com](https://dc8be78f1042b523-92-185-250-102.serveousercontent.com) |
+| Swagger UI | [https://dc8be78f1042b523-92-185-250-102.serveousercontent.com/swagger-ui.html](https://dc8be78f1042b523-92-185-250-102.serveousercontent.com/swagger-ui.html) |
+| Health Check | [https://dc8be78f1042b523-92-185-250-102.serveousercontent.com/actuator/health](https://dc8be78f1042b523-92-185-250-102.serveousercontent.com/actuator/health) |
+| H2 Console | [https://dc8be78f1042b523-92-185-250-102.serveousercontent.com/h2-console](https://dc8be78f1042b523-92-185-250-102.serveousercontent.com/h2-console) |
+
+_Note: The demo resets every 24h. Data is ephemeral._
+
 ## 🏃 Quick Start
 
 ```bash
